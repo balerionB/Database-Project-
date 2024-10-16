@@ -1,0 +1,19 @@
+create table Local_Guides(GuideID int,name varchar(15),language varchar(15),rating int,availability varchar(30),destinationID int,primary key(GuideID));
+
+create table Promotions(PromotionID int,description varchar(15),start_date date,end_date date,destinationID int,discount_percentage int,primary key(PromotionID));
+
+create table Booking(BookingID int,Users_ID int,AccomodationsID int,ActivityID int,checkin_date date,checkout_date date,numberof_guests int,total_price int,primary key(BookingID));
+
+create table Users(Users_ID int,name varchar(15),email varchar(20),phone_no int,password varchar(15),preference varchar(15),primary key(Users_ID));
+
+create table Activities(ActivityID int,name varchar(15),description varchar(30),duration interval,price int,destinationID int, primary key(ActivityID));
+
+create table Transportaion(TransportationID int,type varchar(15),company varchar(15),departure_location varchar(15),arraival_location varchar(15),departure_time interval,arraival_time interval,primary key(TransportationID ));
+
+create table Reviews(ReviewID int,AccomodationsID int,ActivityID int,user_ID int,rating int,comment varchar(30),date date,primary key(ReviewID));
+
+create table Accommodations(AccommodationsID int,name varchar(15),type varchar(15),address int,phone_no int,rating int,price_range int,destinationID int,primary key(AccommodationsID));
+
+create table Destination(name varchar(15),country varchar(15),region varchar(15),description varchar(30),attractions varchar(15),destinationID int,primary key (destinationID));
+
+
