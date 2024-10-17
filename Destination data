@@ -1,0 +1,11 @@
+Insert into Destination values('Hushan Mountain','China','East','Ancient series of walls','Great Wall','1');
+Insert into Destination values('Machu Picchu', 'Peru', 'South America', 'Inca citadel', 'Machu Picchu', '2');
+Insert into Destination values('Mount Everest', 'Nepal', 'South Asia', 'Highest mountain in the world', 'Everest', '3');
+Insert into Destination values('PyramidsofGiza', 'Egypt', 'North Africa', 'Ancient pyramid complex', 'Giza Pyramids', '4');
+Insert into Destination values('Stonehenge', 'United Kingdom', 'Europe', 'Prehistoric stone circle', 'Stonehenge', '5');
+Insert into Destination values('Colosseum', 'Italy', 'Europe', 'Ancient Roman amphitheater', 'Colosseum', '6');
+Insert into Destination values('Mt Kilimanjaro', 'Tanzania', 'East Africa', 'Tallest mountain in Africa', 'Kilimanjaro', '7');
+Insert into Destination values('Petra', 'Jordan', 'Middle East', 'Ancient rock-cut city', 'Petra', '8');
+Insert into Destination values('Christ Redeemer', 'Brazil', 'South America', 'Iconic statue of Jesus Christ', 'Christ Redeemer', '9');
+Insert into Destination values('Taj Mahal', 'India', 'South Asia', 'Mughal-era mausoleum', 'Taj Mahal', '10');
+Insert into Destination values('Fort Jesus', 'Kenya','Coast','Ancient fortress','Fort Jesus','11');
