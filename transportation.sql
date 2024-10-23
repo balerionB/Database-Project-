@@ -1,4 +1,4 @@
-insert into Transportation values('2', 'Bus','Mascardi', 'Nairobi', 'Eldoret','9:00','16:00');
+insert into Transportation values('1', 'Bus','Mascardi', 'Nairobi', 'Eldoret','9:00','16:00');
 insert into Transportation values('2', 'Bus','Mascardi', 'Kisumu', 'Eldoret','7:10','13:40');
 insert into Transportation values('3', 'Train','Kenya Railways', 'Nairobi', 'Mombasa','10:00','14:20');
 insert into Transportation values('4', 'Ship','KSAA', 'Spain', 'Morocco','00:00','20:00');
