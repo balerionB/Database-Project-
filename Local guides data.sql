@@ -1,0 +1,10 @@
+Insert into local_guides values('1','Ray','Kiswahili','5','Rare','4567');
+Insert into local_guides values('2', 'Alice', 'English', 4, 'Frequent', '1234');
+Insert into local_guides values('3', 'Juan', 'Spanish', 5, 'Occasional', '7890');
+Insert into local_guides values('4', 'Ling', 'Mandarin', 4, 'Available', '5678');
+Insert into local_guides values('5', 'Fatima', 'Arabic', 5, 'Rare', '3456');
+Insert into local_guides values('6', 'Hans', 'German', 3, 'Frequent', '6543');
+Insert into local_guides values('7', 'Maria', 'Portuguese', 4, 'Occasional', '8765');
+Insert into local_guides values('8', 'Tariq', 'Urdu', 5, 'Available', '9876');
+Insert into local_guides values('9', 'Sofia', 'Italian', 4, 'Rare', '2345');
+Insert into local_guides values('10', 'Yuki', 'Japanese', 3, 'Frequent', '1357');
