@@ -1,0 +1,105 @@
+CREATE TABLE Destination (
+    destinationID INT PRIMARY KEY,
+    name VARCHAR(30),
+    country VARCHAR(30),
+    region VARCHAR(30),
+    description VARCHAR(50),
+    attractions VARCHAR(50)
+);
+
+CREATE TABLE Local_Guides (
+    GuideID INT PRIMARY KEY,
+    name VARCHAR(30),
+    language VARCHAR(30),
+    rating INT,
+    availability VARCHAR(50),
+    destinationID INT,
+    FOREIGN KEY (destinationID) REFERENCES Destination(destinationID)
+);
+
+CREATE TABLE Promotions (
+    PromotionID INT PRIMARY KEY,
+    description VARCHAR(50),
+    start_date DATE,
+    end_date DATE,
+    destinationID INT,
+    discount_percentage INT,
+    FOREIGN KEY (destinationID) REFERENCES Destination(destinationID)
+);
+
+CREATE TABLE Accommodations (
+    AccommodationsID INT PRIMARY KEY,
+    name VARCHAR(30),
+    type VARCHAR(30),
+    address VARCHAR(50),
+    phone_no BIGINT,
+    rating INT,
+    price_range INT,
+    destinationID INT,
+    FOREIGN KEY (destinationID) REFERENCES Destination(destinationID)
+);
+
+CREATE TABLE Activities (
+    ActivityID INT PRIMARY KEY,
+    name VARCHAR(30),
+    description VARCHAR(50),
+    duration INTERVAL,
+    price INT,
+    destinationID INT,
+    FOREIGN KEY (destinationID) REFERENCES Destination(destinationID)
+);
+
+CREATE TABLE Transportation (
+    TransportationID INT PRIMARY KEY,
+    type VARCHAR(30),
+    company VARCHAR(30),
+    departure_location VARCHAR(50),
+    arrival_location VARCHAR(50),
+    departure_time INTERVAL,
+    arrival_time INTERVAL
+);
+
+CREATE TABLE Users (
+    Users_ID INT PRIMARY KEY,
+    name VARCHAR(30),
+    email VARCHAR(50),
+    phone_no BIGINT,
+    password VARCHAR(30),
+    preference VARCHAR(30)
+);
+
+CREATE TABLE Booking (
+    BookingID INT PRIMARY KEY,
+    Users_ID INT,
+    AccommodationsID INT,
+    ActivityID INT,
+    checkin_date DATE,
+    checkout_date DATE,
+    numberof_guests INT,
+    total_price INT,
+    FOREIGN KEY (Users_ID) REFERENCES Users(Users_ID),
+    FOREIGN KEY (AccommodationsID) REFERENCES Accommodations(AccommodationsID),
+    FOREIGN KEY (ActivityID) REFERENCES Activities(ActivityID)
+);
+
+CREATE TABLE Reviews (
+    ReviewID INT PRIMARY KEY,
+    AccommodationsID INT,
+    ActivityID INT,
+    user_ID INT,
+    rating INT,
+    comment VARCHAR(50),
+    date DATE,
+    FOREIGN KEY (AccommodationsID) REFERENCES Accommodations(AccommodationsID),
+    FOREIGN KEY (ActivityID) REFERENCES Activities(ActivityID),
+    FOREIGN KEY (user_ID) REFERENCES Users(Users_ID)
+);
+
+INSERT INTO Destination (destinationID, name, country, region, description, attractions) VALUES
+    (1, 'Nairobi', 'Kenya', 'Central', 'Capital city with national park', 'Wildlife, Museums'),
+    (2, 'Mombasa', 'Kenya', 'Coast', 'Historical port city', 'Beaches, Fort Jesus'),
+    (3, 'Maasai Mara', 'Kenya', 'Rift Valley', 'Wildlife safari destination', 'Big Five, Migration'),
+    (4, 'Diani', 'Kenya', 'Coast', 'Beach resort town', 'Beaches, Water Sports'),
+    (5, 'Naivasha', 'Kenya', 'Rift Valley', 'Lakeside town', 'Lake Naivasha, Hiking'),
+    (6, 'Kisumu', 'Kenya', 'Western', 'City on Lake Victoria', 'Lake Victoria, Museums'),
+    (7, 'Malindi', 'Kenya', 'Coast', 'Historical coastal town', 'Marine Park, Gede
