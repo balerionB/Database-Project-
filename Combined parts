@@ -104,7 +104,7 @@ CREATE TABLE Reviews (
     FOREIGN KEY (user_ID) REFERENCES Users(Users_ID)
 );
 
--- Insert data into Destination table
+-- Inserts data into Destination table
 INSERT INTO Destination VALUES
 (1, 'Hushan Mountain', 'China', 'East', 'Ancient series of walls', 'Great Wall'),
 (2, 'Machu Picchu', 'Peru', 'South America', 'Inca citadel', 'Machu Picchu'),
@@ -118,7 +118,7 @@ INSERT INTO Destination VALUES
 (10, 'Taj Mahal', 'India', 'South Asia', 'Mughal-era mausoleum', 'Taj Mahal'),
 (11, 'Fort Jesus', 'Kenya', 'Coast', 'Ancient fortress', 'Fort Jesus');
 
--- Insert data into Local_Guides table
+-- Inserts data into Local_Guides table
 INSERT INTO Local_Guides VALUES
 (1, 'Ray', 'Kiswahili', 5, 'Rare', 11),
 (2, 'Alice', 'English', 4, 'Frequent', 1),
@@ -131,7 +131,7 @@ INSERT INTO Local_Guides VALUES
 (9, 'Sofia', 'Italian', 4, 'Rare', 8),
 (10, 'Yuki', 'Japanese', 3, 'Frequent', 9);
 
--- Insert data into Activities table
+-- Inserts data into Activities table
 INSERT INTO Activities VALUES
 (101, 'Hiking', 'Mountain trail hike', '2 hours', 50, 1),
 (102, 'Snorkeling', 'Coral reef snorkeling', '3 hours', 100, 2),
@@ -144,7 +144,7 @@ INSERT INTO Activities VALUES
 (109, 'Team Building', 'Corporate team building', '3 hours', 150, 9),
 (110, 'Kayaking', 'River kayaking adventure', '2 hours', 80, 10);
 
--- Insert data into Users table
+-- Inserts data into Users table
 INSERT INTO Users VALUES
 (20, 'Benja', 'benja20@gmail.com', 720263187, '7546', 'Zoo'),
 (21, 'Stacey', 'stacey349@gmail.com', 130263187, '1246', 'Mountain'),
@@ -157,7 +157,7 @@ INSERT INTO Users VALUES
 (28, 'Gift', 'gift7@gmail.com', 720256737, '0576', 'Beach'),
 (29, 'Jane', 'jane901@gmail.com', 720862187, '4346', 'Mountain');
 
--- Insert data into Accommodations table
+-- Inserts data into Accommodations table
 INSERT INTO Accommodations VALUES
 (301, 'Sunrise Inn', 'Hotel', '101', 1234567890, 4, 200, 1),
 (302, 'Blue Skies', 'Resort', '102', 1234567891, 5, 500, 2),
@@ -170,7 +170,7 @@ INSERT INTO Accommodations VALUES
 (309, 'Desert Oasis', 'Hotel', '109', 1234567898, 4, 220, 5),
 (310, 'Hilltop Haven', 'Cottage', '110', 1234567899, 5, 450, 6);
 
--- Insert data into Reviews table
+-- Inserts data into Reviews table
 INSERT INTO Reviews VALUES
 (1, 301, 101, 20, 5, 'Amazing stay!', '2024-01-15'),
 (2, 302, 102, 21, 4, 'Great experience', '2024-02-20'),
