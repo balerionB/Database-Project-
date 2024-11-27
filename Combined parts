@@ -1,12 +1,14 @@
+-- Create the Destination table
 CREATE TABLE Destination (
     destinationID INT PRIMARY KEY,
     name VARCHAR(30),
     country VARCHAR(30),
     region VARCHAR(30),
-    description VARCHAR(50),
-    attractions VARCHAR(50)
+    description VARCHAR(100),
+    attractions VARCHAR(100)
 );
 
+-- Create the Local_Guides table
 CREATE TABLE Local_Guides (
     GuideID INT PRIMARY KEY,
     name VARCHAR(30),
@@ -17,9 +19,10 @@ CREATE TABLE Local_Guides (
     FOREIGN KEY (destinationID) REFERENCES Destination(destinationID)
 );
 
+-- Create the Promotions table
 CREATE TABLE Promotions (
     PromotionID INT PRIMARY KEY,
-    description VARCHAR(50),
+    description VARCHAR(100),
     start_date DATE,
     end_date DATE,
     destinationID INT,
@@ -27,6 +30,7 @@ CREATE TABLE Promotions (
     FOREIGN KEY (destinationID) REFERENCES Destination(destinationID)
 );
 
+-- Create the Accommodations table
 CREATE TABLE Accommodations (
     AccommodationsID INT PRIMARY KEY,
     name VARCHAR(30),
@@ -39,26 +43,29 @@ CREATE TABLE Accommodations (
     FOREIGN KEY (destinationID) REFERENCES Destination(destinationID)
 );
 
+-- Create the Activities table
 CREATE TABLE Activities (
     ActivityID INT PRIMARY KEY,
     name VARCHAR(30),
-    description VARCHAR(50),
-    duration INTERVAL,
+    description VARCHAR(100),
+    duration VARCHAR(20),
     price INT,
     destinationID INT,
     FOREIGN KEY (destinationID) REFERENCES Destination(destinationID)
 );
 
+-- Create the Transportation table
 CREATE TABLE Transportation (
     TransportationID INT PRIMARY KEY,
     type VARCHAR(30),
     company VARCHAR(30),
     departure_location VARCHAR(50),
     arrival_location VARCHAR(50),
-    departure_time INTERVAL,
-    arrival_time INTERVAL
+    departure_time TIME,
+    arrival_time TIME
 );
 
+-- Create the Users table
 CREATE TABLE Users (
     Users_ID INT PRIMARY KEY,
     name VARCHAR(30),
@@ -68,6 +75,7 @@ CREATE TABLE Users (
     preference VARCHAR(30)
 );
 
+-- Create the Booking table
 CREATE TABLE Booking (
     BookingID INT PRIMARY KEY,
     Users_ID INT,
@@ -82,24 +90,90 @@ CREATE TABLE Booking (
     FOREIGN KEY (ActivityID) REFERENCES Activities(ActivityID)
 );
 
+-- Create the Reviews table
 CREATE TABLE Reviews (
     ReviewID INT PRIMARY KEY,
     AccommodationsID INT,
     ActivityID INT,
     user_ID INT,
     rating INT,
-    comment VARCHAR(50),
+    comment VARCHAR(100),
     date DATE,
     FOREIGN KEY (AccommodationsID) REFERENCES Accommodations(AccommodationsID),
     FOREIGN KEY (ActivityID) REFERENCES Activities(ActivityID),
     FOREIGN KEY (user_ID) REFERENCES Users(Users_ID)
 );
 
-INSERT INTO Destination (destinationID, name, country, region, description, attractions) VALUES
-    (1, 'Nairobi', 'Kenya', 'Central', 'Capital city with national park', 'Wildlife, Museums'),
-    (2, 'Mombasa', 'Kenya', 'Coast', 'Historical port city', 'Beaches, Fort Jesus'),
-    (3, 'Maasai Mara', 'Kenya', 'Rift Valley', 'Wildlife safari destination', 'Big Five, Migration'),
-    (4, 'Diani', 'Kenya', 'Coast', 'Beach resort town', 'Beaches, Water Sports'),
-    (5, 'Naivasha', 'Kenya', 'Rift Valley', 'Lakeside town', 'Lake Naivasha, Hiking'),
-    (6, 'Kisumu', 'Kenya', 'Western', 'City on Lake Victoria', 'Lake Victoria, Museums'),
-    (7, 'Malindi', 'Kenya', 'Coast', 'Historical coastal town', 'Marine Park, Gede
+-- Insert data into Destination table
+INSERT INTO Destination VALUES
+(1, 'Hushan Mountain', 'China', 'East', 'Ancient series of walls', 'Great Wall'),
+(2, 'Machu Picchu', 'Peru', 'South America', 'Inca citadel', 'Machu Picchu'),
+(3, 'Mount Everest', 'Nepal', 'South Asia', 'Highest mountain in the world', 'Everest'),
+(4, 'Pyramids of Giza', 'Egypt', 'North Africa', 'Ancient pyramid complex', 'Giza Pyramids'),
+(5, 'Stonehenge', 'United Kingdom', 'Europe', 'Prehistoric stone circle', 'Stonehenge'),
+(6, 'Colosseum', 'Italy', 'Europe', 'Ancient Roman amphitheater', 'Colosseum'),
+(7, 'Mt Kilimanjaro', 'Tanzania', 'East Africa', 'Tallest mountain in Africa', 'Kilimanjaro'),
+(8, 'Petra', 'Jordan', 'Middle East', 'Ancient rock-cut city', 'Petra'),
+(9, 'Christ Redeemer', 'Brazil', 'South America', 'Iconic statue of Jesus Christ', 'Christ Redeemer'),
+(10, 'Taj Mahal', 'India', 'South Asia', 'Mughal-era mausoleum', 'Taj Mahal'),
+(11, 'Fort Jesus', 'Kenya', 'Coast', 'Ancient fortress', 'Fort Jesus');
+
+-- Insert data into Local_Guides table
+INSERT INTO Local_Guides VALUES
+(1, 'Ray', 'Kiswahili', 5, 'Rare', 11),
+(2, 'Alice', 'English', 4, 'Frequent', 1),
+(3, 'Juan', 'Spanish', 5, 'Occasional', 2),
+(4, 'Ling', 'Mandarin', 4, 'Available', 3),
+(5, 'Fatima', 'Arabic', 5, 'Rare', 4),
+(6, 'Hans', 'German', 3, 'Frequent', 5),
+(7, 'Maria', 'Portuguese', 4, 'Occasional', 6),
+(8, 'Tariq', 'Urdu', 5, 'Available', 7),
+(9, 'Sofia', 'Italian', 4, 'Rare', 8),
+(10, 'Yuki', 'Japanese', 3, 'Frequent', 9);
+
+-- Insert data into Activities table
+INSERT INTO Activities VALUES
+(101, 'Hiking', 'Mountain trail hike', '2 hours', 50, 1),
+(102, 'Snorkeling', 'Coral reef snorkeling', '3 hours', 100, 2),
+(103, 'City Tour', 'Guided city tour', '4 hours', 75, 3),
+(104, 'Wine Tasting', 'Vineyard wine tasting', '1 hour', 40, 4),
+(105, 'Skydiving', 'Tandem skydiving', '30 minutes', 200, 5),
+(106, 'Swimming', 'Pool swimming session', '1 hour', 30, 6),
+(107, 'Cycling', 'Mountain biking', '2 hours', 60, 7),
+(108, 'Football', 'Team football match', '1.5 hours', 20, 8),
+(109, 'Team Building', 'Corporate team building', '3 hours', 150, 9),
+(110, 'Kayaking', 'River kayaking adventure', '2 hours', 80, 10);
+
+-- Insert data into Users table
+INSERT INTO Users VALUES
+(20, 'Benja', 'benja20@gmail.com', 720263187, '7546', 'Zoo'),
+(21, 'Stacey', 'stacey349@gmail.com', 130263187, '1246', 'Mountain'),
+(22, 'Ian', 'ian291@gmail.com', 720263980, '7096', 'Beach'),
+(23, 'Lysa', 'lysa354@gmail.com', 714363187, '7203', 'Hills'),
+(24, 'Ben', 'ben890@gmail.com', 720673187, '5646', 'Islands'),
+(25, 'Zawadi', 'zawadi002@gmail.com', 740963187, '9846', 'Forests'),
+(26, 'Tom', 'tom786@gmail.com', 790263187, '8046', 'Towns'),
+(27, 'Sandra', 'sandra450@gmail.com', 720267637, '6546', 'Cultural places'),
+(28, 'Gift', 'gift7@gmail.com', 720256737, '0576', 'Beach'),
+(29, 'Jane', 'jane901@gmail.com', 720862187, '4346', 'Mountain');
+
+-- Insert data into Accommodations table
+INSERT INTO Accommodations VALUES
+(301, 'Sunrise Inn', 'Hotel', '101', 1234567890, 4, 200, 1),
+(302, 'Blue Skies', 'Resort', '102', 1234567891, 5, 500, 2),
+(303, 'Ocean Breeze', 'Hostel', '103', 1234567892, 3, 100, 1),
+(304, 'Mountain View', 'Hotel', '104', 1234567893, 4, 250, 3),
+(305, 'City Lights', 'Apartment', '105', 1234567894, 5, 400, 2),
+(306, 'Forest Retreat', 'Cottage', '106', 1234567895, 4, 350, 3),
+(307, 'Beach House', 'Resort', '107', 1234567896, 5, 600, 1),
+(308, 'Riverfront', 'Hostel', '108', 1234567897, 3, 120, 4),
+(309, 'Desert Oasis', 'Hotel', '109', 1234567898, 4, 220, 5),
+(310, 'Hilltop Haven', 'Cottage', '110', 1234567899, 5, 450, 6);
+
+-- Insert data into Reviews table
+INSERT INTO Reviews VALUES
+(1, 301, 101, 20, 5, 'Amazing stay!', '2024-01-15'),
+(2, 302, 102, 21, 4, 'Great experience', '2024-02-20'),
+(3, 303, 103, 22, 3, 'Average service', '2024-03-10'),
+(4, 304, 104, 23, 4, 'Comfortable and cozy', '2024-04-05'),
+(5, 305, 105, 24, 5, 'Highly recommended!', '2024-05-25');
